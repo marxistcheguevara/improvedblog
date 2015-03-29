@@ -5,6 +5,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 # Use mysql as the database for Active Record
 gem 'mysql2'
+#gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
+gem 'activeadmin', github: 'lazaronixon/activeadmin', branch: 'master'
+gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
