@@ -1,0 +1,42 @@
+<%= render 'shared/topnav' %>
+
+<div class= "container">
+<div class="row">
+<div class="col-md-9">
+<div class="custom-panel comic-panel">
+  <div class="custom-panel-title">
+    <h4><%= @post.title %></h4>
+     
+  </div>
+ 
+  <div class="custom-panel-body">
+  <% if @post.image %>
+    <p class="comicchar-holder">
+      <img src="<%= @post.image %>" class="img-thumbnail">
+    </p>
+  <% else %>
+    <p class="comicchar-holder">
+      <img src="http://prideparrot.com/Source-Codes/Images/bootstrap/comicchar3.png">
+    </p>
+	<% end %>
+   <p><%= @post.body %></p>
+
+    <p class="text-right">
+     <%= link_to @post.category.name, category_path(:id => @post.category.id) %>||<%= @post.created_at.strftime("%b %d, %Y") %>
+    </p>
+  	</div>
+
+</div>
+</div>
+<div class="col-md-3">
+<ul class="list-group">
+ <% Post.order(created_at: :desc).first(5).each do |p| %>
+  <li class="list-group-item"><%= link_to p.title, p %> (<%= p.created_at.getlocal.strftime("%b %d, %Y") %>)</li>
+ <% end %>
+</ul>
+</div>
+</div>
+</div>
+
+
+<%= render 'shared/footer' %>

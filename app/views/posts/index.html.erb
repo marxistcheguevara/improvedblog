@@ -1,0 +1,23 @@
+<%= render 'shared/topnav' %>
+
+<div class="row">
+
+	<div class="col-md-9">
+
+	</div>
+
+	<div class="col-md-3">
+  		
+  	<ul class="list-group">
+ <% Post.order(created_at: :desc).first(5).each do |p| %>
+  <li class="list-group-item"><%= link_to p.title, p %> (<%= p.created_at.getlocal.strftime("%b %d, %Y") %>)</li>
+ <% end %>
+</ul>
+
+  		
+	</div>
+
+</div>
+
+<%= render 'shared/footer' %>
+     

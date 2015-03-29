@@ -1,0 +1,22 @@
+<%= render 'shared/topnav' %>
+
+<div class="row">
+
+	<div class="col-md-8">
+
+	</div>
+
+	<div class="col-md-3">
+  		
+  	 <aside style="background: #eee; margin-bottom: 10px;">
+        <% @posts.order(created_at: :desc).first(10).each do |post| %>
+  			<h4><%= link_to post.title, post %> (<%= post.created_at.getlocal.strftime("%b %d, %Y") %>)</h4>
+  		<% end %>
+    </aside>
+  		
+	</div>
+
+</div>
+
+<%= render 'shared/footer' %>
+     

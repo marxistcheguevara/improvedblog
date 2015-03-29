@@ -1,0 +1,46 @@
+<%= render 'shared/topnav' %>
+
+
+<h1>Yeni Yazı</h1>
+<div class= "row">
+<div class= "col-md-2"></div>
+<div class="col-md-6">
+<%= form_for @post do |f| %>
+		<p>
+			<%= f.label :title %><br />
+			<%= f.text_field :title %><br />
+		</p>
+		
+		<p>
+			<%= f.label :body %><br />
+			<%= f.text_area :body %> <br />
+		</p>
+		
+		<p>
+			<%= f.label :image %><br />
+			<%= f.url_field :image %><br />	
+			
+		</p>		
+		
+		<p>
+			<%= f.select :category_id, Category.all.collect {|c| [c.name, c.id]}, {:include_blank => "birini seç"} %><br />
+		</p>
+		<p>
+			<%= f.select :featured do %>
+  <% [['seçilmiş', 1], ['adi', 2]].each do |c| -%>
+    <%= content_tag(:option, c.first, value: c.last) %>
+  <% end %>
+<% end %>
+			
+			
+		</p>
+		<p>
+			<%= f.submit "OK" %>
+		</p>		
+		
+
+<%end %>
+</div>
+</div>
+
+<%= render 'shared/footer' %>

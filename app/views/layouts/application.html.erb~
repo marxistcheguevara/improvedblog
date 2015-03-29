@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ruby on Rails blog app">
+    <meta name="author" content="marmeladze">
+  <title>BlogApplication</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.2.1/bootstrap-social.css">
+  
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+ 
+  
+</head>
+<body>
+<% if flash[:notice] %>
+
+<div id="notice">
+<p class="text-danger"><%= flash[:notice] %></p>
+</div>
+
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

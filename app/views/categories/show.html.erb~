@@ -1,0 +1,39 @@
+<%= render 'shared/topnav' %>
+
+<div class= "container">
+<div class="row">
+<div class="col-md-9">
+<div class="list-group">
+<p><%= @category.name%> bölməsindəki yazılar</p>
+
+<% @posts.each do |post| %>
+<article>
+<%= link_to post.title, post %>
+<% if post.image %>
+<img itemprop="thumbnailUrl" src="<%= post.image%>" alt="" width="70" height="70">
+<% end %>
+</article>
+<% end %>   
+ 
+</div>
+</div>
+<div class="col-md-3">
+<ul class="list-group">
+<p>Bütün yazılar</p>
+ <% Post.order(created_at: :desc).first(10).each do |p| %>
+  <li class="list-group-item"><%= link_to p.title, p %> (<%= p.created_at.getlocal.strftime("%b %d, %Y") %>)</li>
+ <% end %>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<%= render 'shared/footer' %>
+
+
+
