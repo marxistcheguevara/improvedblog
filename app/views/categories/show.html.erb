@@ -2,21 +2,28 @@
 
 <div class= "container">
 <div class="row">
-<div class="col-md-9">
-<div class="list-group">
-<p><%= @category.name%> bölməsindəki yazılar</p>
-
-<% @posts.each do |post| %>
-<article>
-<h4><%= link_to post.title, post %></h4>
-<% if post.image %>
-<img itemprop="thumbnailUrl" src="<%= post.image%>" alt="" width="70" height="70">
-<% end %>
-</article>
-<% end %>   
- 
+<div class="col-md-6">
+ 	<div class="panel panel-default">
+		  <%= will_paginate @posts %>
+		<div class="panel-heading"><h4><%= @category.name%> bölməsindəki yazılar</h4></div>
+		<% @posts.each do |post| %>   			
+   			<div class="panel-body">
+        	<div class="clearfix"></div>
+            	  <% if post.image %>
+           			<img src="<%= post.image %>" class="img-circle pull-right" width="80px" >
+        		  <% end %>
+        			<p><%= link_to post.title, post %></p>
+        			<p><%= post.body[0..300] %></p>
+        			<hr>
+        			<p class="text-right"><%= link_to post.author.fullname, author_path(:id => post.author.id) %>||<%= post.created_at.strftime("%b %d, %Y") %></p>
+        			<hr>
+        			
+			</div>
+	   <% end %>
+	   <%= will_paginate @posts %>
+	</div>
 </div>
-</div>
+<div class="col-md-3"></div>
 <div class="col-md-3">
 <ul class="list-group">
 <p>Bütün yazılar</p>

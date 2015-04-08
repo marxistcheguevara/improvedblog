@@ -1,0 +1,29 @@
+<%= render 'shared/topnav' %>
+
+<div class="row"><div class="col-md-2"></div>
+<div class="col-md-6"><div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Haqqımda</div>
+  <div class="panel-body">
+    <p>Əlaqə detallar</p>
+  </div>
+
+  <!-- List group -->
+  <ul class="list-group">
+    <li class="list-group-item">Adres: Lev Tolstoy 24/35</li>
+    <li class="list-group-item">Tel: 055 123 456 78</li>
+    <li class="list-group-item">E-mail: email@example.com</li>
+   </ul>
+</div>
+</div>
+<div class="col-md-1"></div>
+<div class="col-md-3">
+<ul class="list-group">
+ <% Post.order(created_at: :desc).first(10).each do |p| %>
+  <li class="list-group-item"><%= link_to p.title, p %> (<%= p.created_at.getlocal.strftime("%b %d, %Y") %>)</li>
+ <% end %>
+</ul>
+</div>
+</div>
+<%= render 'shared/footer' %>
+

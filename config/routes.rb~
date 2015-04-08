@@ -1,7 +1,42 @@
 Rails.application.routes.draw do
-  get 'home/index'
-  
+  get 'authors/index'
+
+  get 'authors/show'
+
+  get 'authors/new'
+
+  get 'authors/create'
+
+  get 'authors/edit'
+
+  get 'authors/update'
+
+  get 'authors/destroy'
+
+  get 'pages/about'
+
+  get 'pages/contact'
+
+  get 'pages/resources'
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  get 'categories/index'
+
+  get 'categories/edit'
+
+  get 'categories/new'
+
+  get 'categories/show'
+
+  #get 'home/index'
+  resources :categories
   resources :posts
+  
+  get '/about' => redirect('pages/about')
+  get '/contact' => redirect('pages/contact')
+  get '/resources' => redirect('pages/resources')
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

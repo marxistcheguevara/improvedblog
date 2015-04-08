@@ -8,6 +8,10 @@ gem 'mysql2'
 #gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
 gem 'activeadmin', github: 'lazaronixon/activeadmin', branch: 'master'
 gem 'devise'
+gem 'meta_search'
+gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate-bootstrap'
+gem 'ransack', github: 'activerecord-hackery/ransack'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

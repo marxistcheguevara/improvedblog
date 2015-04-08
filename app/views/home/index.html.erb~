@@ -1,2 +1,15 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+
+<p>Seçilmiş yazılar</p>
+
+
+<ul class="list-group">
+	<% @posts.each do |p|%>
+	  <li class="list-group-item"><%= link_to p.title, p %> (<%= p.created_at.getlocal.strftime("%b %d, %Y") %>)</li>
+	 <% end %>
+</ul>
+
+
+
+
+
+

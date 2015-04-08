@@ -1,0 +1,19 @@
+<%= render 'shared/topnav' %>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Əlaqə</div>
+  <div class="panel-body">
+    <p>Əlaqə detallar</p>
+  </div>
+
+  <!-- List group -->
+  <ul class="list-group">
+    <li class="list-group-item">Adres: Lev Tolstoy 24/35</li>
+    <li class="list-group-item">Tel: 055 123 456 78</li>
+    <li class="list-group-item">E-mail: email@example.com</li>
+   </ul>
+</div>
+
+
+<%= render 'shared/footer' %>

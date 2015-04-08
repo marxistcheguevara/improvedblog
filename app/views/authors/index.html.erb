@@ -1,0 +1,31 @@
+<%= render 'shared/topnav' %>
+
+
+
+
+<div class="col-md-2">
+</div>
+
+<div class="col-md-9">
+
+
+
+<ul class="list-group">
+    <% @authors.each do |author| %>
+  <li class="list-group-item">
+    <span class="badge"><%= author.posts.count %></span>
+<%= link_to author.fullname, author %> </li>
+    <% end %>
+</ul>
+
+  
+
+
+
+       
+
+
+</div>
+
+
+<%= render 'shared/footer' %>

@@ -3,16 +3,40 @@
 <div class="row">
 
 	<div class="col-md-8">
+	<script>
+	
+	$(document).ready(function(){
+  $('.bxslider').bxSlider({
+  								mode: 'fade',
+  								captions: true
+								});
+});
+	
+	
+	</script>
+
+	<ul class="bxslider">
+	
+  	
+  	<% Post.where(featured: true).last(5).each do |fp| %>
+  	
+	<li><img src="<%= fp.image %>" title="<%= fp.title %>" /></li>
+  	
+  	<% end %>
+	
+	</ul>
 
 	</div>
-
+	
+	
 	<div class="col-md-3">
   		
-  	 <aside style="background: #eee; margin-bottom: 10px;">
-        <% @posts.order(created_at: :desc).first(10).each do |post| %>
-  			<h4><%= link_to post.title, post %> (<%= post.created_at.getlocal.strftime("%b %d, %Y") %>)</h4>
-  		<% end %>
-    </aside>
+  	<ul class="list-group">
+ <% Post.order(created_at: :desc).first(5).each do |p| %>
+  <li class="list-group-item"><%= link_to p.title, p %> (<%= p.created_at.getlocal.strftime("%b %d, %Y") %>)</li>
+ <% end %>
+</ul>
+
   		
 	</div>
 

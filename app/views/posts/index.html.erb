@@ -2,10 +2,33 @@
 
 <div class="row">
 
-	<div class="col-md-9">
+	<div class="col-md-8">
+	<script>
+	
+	$(document).ready(function(){
+  $('.bxslider').bxSlider({
+  								mode: 'fade',
+  								captions: true
+								});
+});
+	
+	
+	</script>
+
+	<ul class="bxslider">
+	
+  	
+  	<% Post.where(featured: true).last(5).each do |fp| %>
+  	
+	<li><img src="<%= fp.image %>" width="700px" height="400px" title="<%= fp.title %>" /></li>
+  	
+  	<% end %>
+	
+	</ul>
 
 	</div>
-
+	
+	
 	<div class="col-md-3">
   		
   	<ul class="list-group">

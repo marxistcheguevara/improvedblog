@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
 
   def show
   	@title = @category.name
-  	@posts = @category.posts
+  	@posts = @category.posts.paginate(:page => params[:page], :per_page => 20)
 
   end
 
