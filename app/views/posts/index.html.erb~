@@ -18,9 +18,9 @@
 	<ul class="bxslider">
 	
   	
-  	<% Post.where(featured: true).last(5).each do |fp| %>
+  	<% Post.where(featured: true).last(10).each do |fp| %>
   	
-	<li><img src="<%= fp.image %>" title="<%= fp.title %>" /></li>
+	<li><a href="<%= fp %>"><img src="<%= fp.image %>" width="700px" height="400px" title="<%= fp.title %>" /></a></li>
   	
   	<% end %>
 	
